@@ -112,4 +112,6 @@ GET http://localhost:8000/stream/Inception.mp4
 - ✅ Verify each service appears in Eureka dashboard
 - ✅ Check service names match in Eureka registration
 
-## **Project Structure**
+
+
+
