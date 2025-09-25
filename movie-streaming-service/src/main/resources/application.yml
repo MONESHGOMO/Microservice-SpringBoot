@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: movie-streaming-service   # Unique name of this microservice (used by Eureka registry)
+   # Hibernate dialect for MySQL 8
+
+server:
+  port: 8091  # Port where this service runs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka   # URL of the Eureka server for registration & discovery
