@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: service-registry   # The application name (used for identification by other services)
+
+server:
+  port: 8761   # Eureka server runs on port 8761 (default for Eureka dashboard)
+
+eureka:
+  instance:
+    hostname: localhost   # Hostname of the Eureka server (services will use this to connect)
+
+  client:
+    register-with-eureka: false   # Prevent the server from trying to register itself as a client
+    fetch-registry: false         # Prevent the server from trying to fetch the registry from another Eureka server
