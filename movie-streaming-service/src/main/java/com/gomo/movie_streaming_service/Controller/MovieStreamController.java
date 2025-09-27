@@ -16,7 +16,7 @@ public class MovieStreamController {
 
     public static final String VIDEO_DIRECTORY = "C:\\Users\\ASUS\\Videos\\";
 
-    @GetMapping("/stream/{videoName}")
+    @GetMapping("/{videoName}")
     public ResponseEntity<InputStreamResource> streamVideo(@PathVariable String videoName) throws FileNotFoundException {
         File file = new File(VIDEO_DIRECTORY + videoName);
 
@@ -29,4 +29,6 @@ public class MovieStreamController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    // 55:54
 }

@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class MoviCatalogServiceApplication {
+public class MovieCatalogServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MoviCatalogServiceApplication.class, args);
+		SpringApplication.run(MovieCatalogServiceApplication.class, args);
 	}
 
 }
