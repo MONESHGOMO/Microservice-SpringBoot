@@ -3,6 +3,7 @@ package com.gomo.movi_catalog_service.Controller;
 
 import com.gomo.movi_catalog_service.Model.MovieInfo;
 import com.gomo.movi_catalog_service.Repository.MovieInfoRepository;
+import jakarta.ws.rs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +26,13 @@ public class MovieInfoController {
         return movieInfoRepository.findAll();
     }
 
-    @GetMapping("/find-path-by-id/{movieInfoId}")
-    public String findPathById(@PathVariable Long movieInfoId){
 
-        var videoInfoOptional = movieInfoRepository.findById(movieInfoId);
-        return videoInfoOptional.map(MovieInfo::getPath).orElse(null);
+    // the ID of the movie info is given and the stream service need to return the path of  the movie
+
+    @GetMapping("/find-path-by-id/{movieInfoId}")
+     public String getPathById(@PathVariable Long id){
+        var videoInfoOptional = movieInfoRepository.findById(id);
+        return videoInfoOptional.map(MovieInfo::getPath).orElse(null); //  return videoInfoOptional.map(movieInfo -> movieInfo.getPath()).orElse(null);
     }
 
 }

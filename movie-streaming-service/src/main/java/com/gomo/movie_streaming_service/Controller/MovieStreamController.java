@@ -1,5 +1,7 @@
 package com.gomo.movie_streaming_service.Controller;
 
+import com.gomo.movie_streaming_service.config.MovieCatalogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 public class MovieStreamController {
+
+
+    @Autowired
+    private MovieCatalogService movieCatalogService;
+
+    public static final Logger log = Logger.getLogger(MovieStreamController.class.getName());
 
     public static final String VIDEO_DIRECTORY = "C:\\Users\\ASUS\\Videos\\";
 
@@ -30,5 +40,11 @@ public class MovieStreamController {
         }
     }
 
-    // 55:54
+    @GetMapping("/with-id/{videoInfoId}")
+    public ResponseEntity<InputStreamResource> streamVideoById(@PathVariable Long videoInfoId) throws FileNotFoundException {
+        String moviePath = movieCatalogService.getMoviePath(videoInfoId);
+        log.log(Level.INFO,"Resolved movie path ={0}",moviePath);
+        return streamVideo(moviePath);
+    }
+
 }

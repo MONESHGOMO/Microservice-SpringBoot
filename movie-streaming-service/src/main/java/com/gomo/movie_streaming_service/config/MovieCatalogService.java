@@ -9,6 +9,9 @@ import org.springframework.web.client.RestTemplate;
 public class MovieCatalogService {
 
     public static final String CATALOG_SERVICE = "http://movie-catalog-service";
+
+
+
     @Autowired
     private RestTemplate restTemplate;
 

@@ -11,7 +11,7 @@ public class REST_Configuration {
 
 
 
-    @LoadBalanced
+    @LoadBalanced //  Annotation to mark a RestTemplate, RestClient.Builder or WebClient.Builder bean to be configured to use a LoadBalancerClient.
     @Bean
     public RestTemplate restTemplate(){
         return new RestTemplate();
